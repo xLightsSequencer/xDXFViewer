@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1046</width>
+    <height>928</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>xDXF Viewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="xDXFViewer.qrc">
+    <normaloff>:/xDXFViewer/xDXFViewer.png</normaloff>:/xDXFViewer/xDXFViewer.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="DXFGraphicsView" name="graphicsView"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="le_Search"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_Search">
+        <property name="text">
+         <string>Search</string>
+        </property>
+        <property name="icon">
+         <iconset resource="xDXFViewer.qrc">
+          <normaloff>:/xDXFViewer/icons/magnifier.png</normaloff>:/xDXFViewer/icons/magnifier.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1046</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_DXF"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionOpen_Logs"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="xDXFViewer.qrc">
+     <normaloff>:/xDXFViewer/icons/cross.png</normaloff>:/xDXFViewer/icons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionOpen_Logs">
+   <property name="icon">
+    <iconset resource="xDXFViewer.qrc">
+     <normaloff>:/xDXFViewer/icons/script.png</normaloff>:/xDXFViewer/icons/script.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Logs...</string>
+   </property>
+  </action>
+  <action name="actionOpen_DXF">
+   <property name="icon">
+    <iconset resource="xDXFViewer.qrc">
+     <normaloff>:/xDXFViewer/icons/folder.png</normaloff>:/xDXFViewer/icons/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open DXF...</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="xDXFViewer.qrc">
+     <normaloff>:/xDXFViewer/xDXFViewer.png</normaloff>:/xDXFViewer/xDXFViewer.png</iconset>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="xDXFViewer.qrc">
+     <normaloff>:/xDXFViewer/icons/printer.png</normaloff>:/xDXFViewer/icons/printer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DXFGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>dxfgraphicsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="xDXFViewer.qrc"/>
+ </resources>
+ <connections/>
+</ui>
