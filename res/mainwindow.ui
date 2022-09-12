@@ -135,7 +135,7 @@
   <customwidget>
    <class>DXFGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>dxfgraphicsview.h</header>
+   <header>./src/DXFGraphicsView.h</header>
   </customwidget>
  </customwidgets>
  <resources>
