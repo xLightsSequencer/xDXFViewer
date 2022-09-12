@@ -19,6 +19,6 @@ To build on Linux with g++(tested on Mint Linux 21).
 mkdir build
 cd build
 cmake ..
-cmake --build ..
+cmake --build .
 ./xDXFViewer
 ```
