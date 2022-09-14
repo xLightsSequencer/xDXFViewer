@@ -145,8 +145,14 @@ void MainWindow::OpenDXF(QString const& file)
 
 void MainWindow::drawText( DXFText const& text)
 {
-	const QPen mainPen(Qt::black, 1);
-	const QBrush blackbrush(Qt::black, Qt::SolidPattern);
+	QColor drawColor(Qt::black);
+	if(text.color24 != -1)
+	{
+		QString hexvalue = QString("#%1").arg(text.color24, 6, 16, QLatin1Char('0'));
+		drawColor = QColor(hexvalue);
+	}
+	const QPen mainPen(drawColor, 1);
+	const QBrush blackbrush(drawColor, Qt::SolidPattern);
 
 	QFont font;
 	font.setPixelSize(int(text.fontSize * SCALE));
@@ -158,20 +164,36 @@ void MainWindow::drawText( DXFText const& text)
 	io->setPos(text.loc1.x * SCALE, text.loc1.y * SCALE);
 	io->setPlainText(text.text);
 	io->setFont(font);
+	io->setDefaultTextColor(drawColor);
 
 	dxf_scene->addItem(io);
 }
 
 void MainWindow::drawCircle(DXFCircle const& circle)
 {
-	const QPen mainPen(Qt::black, 1);
-	const QBrush blackbrush(Qt::black, Qt::SolidPattern);
-	dxf_scene->addEllipse(circle.loc.x * SCALE, circle.loc.y * SCALE, circle.radius * SCALE * 5, circle.radius * SCALE * 5, mainPen, blackbrush);
+	QColor drawColor(Qt::black);
+	if(circle.color24 != -1)
+	{
+		QString hexvalue = QString("#%1").arg(circle.color24, 6, 16, QLatin1Char('0'));
+		drawColor = QColor(hexvalue);
+	}
+	const QPen mainPen(drawColor, 1);
+	const QBrush blackbrush(drawColor, Qt::SolidPattern);
+	dxf_scene->addEllipse(circle.loc.x * SCALE, circle.loc.y * SCALE, circle.radius * SCALE * 4, circle.radius * SCALE * 4, mainPen, blackbrush);
 }
 
 void MainWindow::drawLine(DXFLine const& /*line*/)
 {
-	/*QPen mainPen(Qt::black, 1);
+	/*
+	QColor drawColor(Qt::black);
+	if(line.color24 != -1)
+	{
+		QString hexvalue = QString("#%1").arg(line.color24, 6, 16, QLatin1Char('0'));
+		drawColor = QColor(hexvalue);
+	}
+	const QPen mainPen(drawColor, 1);
+	const QBrush blackbrush(drawColor, Qt::SolidPattern);
+
 	if (line.color == 252) {
 		mainPen.setStyle(Qt::DotLine);
 	}

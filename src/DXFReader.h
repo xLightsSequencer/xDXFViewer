@@ -19,23 +19,24 @@ struct DXFPoint
 struct DXFText
 {
 	DXFText() = default;
-	DXFText(QString _text, DXFPoint _loc1, DXFPoint _loc2, double _angle, double _fontSize) :
-		text(std::move(_text)), loc1(std::move(_loc1)), loc2(std::move(_loc2)), angle(_angle), fontSize(_fontSize) {};
+	DXFText(QString _text, DXFPoint _loc1, DXFPoint _loc2, double _angle, double _fontSize, int _color24) :
+		text(std::move(_text)), loc1(std::move(_loc1)), loc2(std::move(_loc2)), angle(_angle), fontSize(_fontSize), color24(_color24) {};
 	QString text;
 	DXFPoint loc1;
 	DXFPoint loc2;
 	double angle{ -1.0 };
 	double fontSize{ -1.0 };
+	int color24{ -1 };
 };
 
 struct DXFLine
 {
 	DXFLine() = default;
-	DXFLine(DXFPoint _loc1, DXFPoint _loc2, int _color, double _width, QString _type) :
-		loc1(std::move(_loc1)), loc2(std::move(_loc2)), color(_color), width(_width), type(std::move(_type)) {};
+	DXFLine(DXFPoint _loc1, DXFPoint _loc2, int _color24, double _width, QString _type) :
+		loc1(std::move(_loc1)), loc2(std::move(_loc2)), color24(_color24), width(_width), type(std::move(_type)) {};
 	DXFPoint loc1;
 	DXFPoint loc2;
-	int color{ -1 };
+	int color24{ -1 };
 	double width{ -1.0 };
 	QString type;
 };
@@ -43,10 +44,11 @@ struct DXFLine
 struct DXFCircle
 {
 	DXFCircle() = default;
-	DXFCircle(DXFPoint _loc, double _rad) :
-		loc(std::move(_loc)), radius(_rad) {};
+	DXFCircle(DXFPoint _loc, double _rad, int _color24) :
+		loc(std::move(_loc)), radius(_rad), color24(_color24) {};
 	DXFPoint loc;
 	double radius{ -1.0 };
+	int color24{ -1 };
 };
 
 class DXFReader : public DL_CreationAdapter
