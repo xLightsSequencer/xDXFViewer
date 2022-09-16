@@ -151,8 +151,6 @@ void MainWindow::drawText( DXFText const& text)
 		QString hexvalue = QString("#%1").arg(text.color24, 6, 16, QLatin1Char('0'));
 		drawColor = QColor(hexvalue);
 	}
-	const QPen mainPen(drawColor, 1);
-	const QBrush blackbrush(drawColor, Qt::SolidPattern);
 
 	QFont font;
 	font.setPixelSize(int(text.fontSize * SCALE));
