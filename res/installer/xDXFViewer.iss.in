@@ -25,9 +25,10 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "D
 Source: "..\..\cmake_vs\Release\{#MyTitleName}.exe"; DestDir: "{app}"
 Source: "..\{#MyTitleName}.ico"; DestDir: "{app}"
 Source: "..\..\cmake_vs\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\..\cmake_vs\Release\platforms\qwindows.dll"; DestDir: "{app}\platforms\"; Flags: ignoreversion  
+Source: "..\..\cmake_vs\Release\platforms\*.dll"; DestDir: "{app}\platforms\"; Flags: ignoreversion  
 Source: "..\..\cmake_vs\Release\imageformats\*.dll"; DestDir: "{app}\imageformats\"; Flags: ignoreversion
 Source: "..\..\cmake_vs\Release\styles\*.dll"; DestDir: "{app}\styles\"; Flags: ignoreversion
+Source: "..\..\cmake_vs\Release\printsupport\*.dll"; DestDir: "{app}\printsupport\"; Flags: ignoreversion
 Source: "..\..\cmake_vs\Release\translations\*.qm"; DestDir: "{app}\translations\"; Flags: ignoreversion
 
 [Run]
