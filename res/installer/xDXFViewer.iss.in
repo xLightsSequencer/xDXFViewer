@@ -31,5 +31,8 @@ Source: "..\..\cmake_vs\Release\styles\*.dll"; DestDir: "{app}\styles\"; Flags: 
 Source: "..\..\cmake_vs\Release\printsupport\*.dll"; DestDir: "{app}\printsupport\"; Flags: ignoreversion
 Source: "..\..\cmake_vs\Release\translations\*.qm"; DestDir: "{app}\translations\"; Flags: ignoreversion
 
+[Icons]
+Name: "{group}\{#MyTitleName}"; Filename: "{app}\{#MyTitleName}.exe"
+
 [Run]
 Filename: "{app}\{#MyTitleName}.exe"; Description: "Launch application"; Flags: postinstall nowait skipifsilent 
