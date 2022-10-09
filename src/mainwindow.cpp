@@ -107,10 +107,10 @@ void MainWindow::on_actionClose_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
 	auto hpp{ helpText.right(helpText.size() - helpText.indexOf("Options:")) };
-	QString text{ QString("About xDXF Viewer v%1\nQT v%2\n\n\nCommandline %3\n\nIcons by:\n%4")
+	QString text{ QString("About xDXF Viewer v%1<br>QT v%2<br><br>Commandline %3<br><br>Icons by:<br>%4")
 		.arg(PROJECT_VER).arg(QT_VERSION_STR)
 		.arg(hpp)
-		.arg(R"(http://www.famfamfam.com/lab/icons/silk/)") };
+		.arg(QStringLiteral("<a href='http://www.famfamfam.com/lab/icons/silk/'>www.famfamfam.com</a>")) };
 	//http://www.famfamfam.com/lab/icons/silk/
 	QMessageBox::about(this, "About xDXF Viewer", text);
 }

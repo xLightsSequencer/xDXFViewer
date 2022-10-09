@@ -1,3 +1,5 @@
+if(WIN32)
+
 find_package(Qt5Core REQUIRED)
 
 # get absolute path to qmake, then use it to find windeployqt executable
@@ -28,3 +30,4 @@ function(windeployqt target)
 
 
 endfunction()
+endif()
