@@ -11,6 +11,7 @@ on:
     paths-ignore:
       - '.github/workflows/*.yml'
       - '*.md'
+  workflow_dispatch:
 env:
   BUILD_TYPE: Release
 
