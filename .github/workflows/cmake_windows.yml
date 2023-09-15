@@ -51,7 +51,7 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: true
-        automatic_release_tag: "ci"
+        automatic_release_tag: "ci_win"
         title: "${{ steps.version.outputs.version }}"
         files: |        
           ./res/installer/output/*.exe
