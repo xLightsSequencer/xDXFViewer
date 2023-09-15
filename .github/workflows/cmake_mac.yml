@@ -22,6 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Install create-dmg
+      run: brew install create-dmg
+    
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
@@ -36,3 +39,7 @@ jobs:
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      
+    - name: Build DMG
+      run: create-dmg xDXFViewer.dmg ./
+
