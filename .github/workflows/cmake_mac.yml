@@ -41,7 +41,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
       
     - name: Build DMG
-      run: create-dmg xDXFViewer.dmg ./xDXFViewer.app
+      run: create-dmg xDXFViewer.dmg ./build/xDXFViewer.app
 
     - name: Upload Installer
       uses: actions/upload-artifact@v2
