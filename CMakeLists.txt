@@ -78,9 +78,6 @@ else()
         )
     endif()
 endif()
-
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::PrintSupport spdlog::spdlog)
-
 set_target_properties(${PROJECT_NAME} PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER xdxf_viewer.xlights.org
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -88,6 +85,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::PrintSupport spdlog::spdlog)
 
 target_sources(${PROJECT_NAME} PRIVATE res/resource.rc)
 
