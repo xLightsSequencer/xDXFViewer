@@ -104,5 +104,16 @@ if(QT_VERSION_MAJOR EQUAL 6)
     if(WIN32)
         windeployqt(${PROJECT_NAME})
     endif()
+    if(APPLE)
+    message("macdeployqt")
+            execute_process(
+            COMMAND ${qt_root}/bin/macdeployqt
+            ${CMAKE_INSTALL_PREFIX}/build/${PROJECT_NAME}.app
+            -dmg
+        )
+    endif()
 endif()
+
+install(CODE "include(BundleUtilities)
+    fixup_bundle(\"${APPS}\" \"${QT_PLUGINS}\" \"${DIRS}\")")
 
