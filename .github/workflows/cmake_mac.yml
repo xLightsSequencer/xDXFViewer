@@ -41,7 +41,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: macdeployqt
-      run: macdeployqt ${{ github.workspace }}/build/ScottPlayer.app -dmg -verbose=3
+      run: macdeployqt ${{ github.workspace }}/build/xDXFViewer.app -dmg -verbose=3
       
     - name: Build DMG
       run: create-dmg xDXFViewer.dmg ./build/xDXFViewer.app
